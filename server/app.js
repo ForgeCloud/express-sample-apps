@@ -22,7 +22,6 @@ module.exports = (issuer) => {
 
   const samplesDir = path.join(__dirname, '../samples/');
   const staticDir = path.join(samplesDir, '_static/static/');
-  console.log(staticDir);
   const oidcClient = require('./lib/client')(issuer);
   const authorize = require('./lib/authorize')(oidcClient);
 
@@ -55,9 +54,9 @@ module.exports = (issuer) => {
   app.get('/hosted/signin', hostedSigninHandler);
 
   app.get('/logout', logoutHandler);
-  // app.get('/forgot-password', forgotPasswordPage);
+  app.get('/custom/forgot-password', forgotPasswordPage);
   // app.get('/reset-password', resetPasswordPage);
-  // app.get('/recover-username', recoverUsernamePage);
+  app.get('/custom/forgot-username', forgotUsernamePage);
   // app.get('/callback', hostedCallbackHandler);
   // app.post('/signin-hosted', hostedSigninHandler);
   // app.post('/signin-non-hosted', nonHostedSigningHandler);
@@ -90,7 +89,7 @@ module.exports = (issuer) => {
   }
 
   function forgotPasswordPage(req, res) {
-    res.render('signin/forgot-password', {});
+    res.render('custom-login/forgot-password', {});
   }
 
   function resetPasswordPage(req, res) {
@@ -102,8 +101,8 @@ module.exports = (issuer) => {
     res.render('signin/reset-password', data);
   }
 
-  function recoverUsernamePage(req, res) {
-    res.render('signin/recover-username', {});
+  function forgotUsernamePage(req, res) {
+    res.render('custom-login/forgot-username', {});
   }
 
   async function hostedCallbackHandler(req, res) {
@@ -131,8 +130,8 @@ module.exports = (issuer) => {
   }
 
   async function customSigninHandler(req, res) {
+    let { password, username } = req.body;
     try {
-      let { password, username } = req.body;
       username = typeof username == 'string' ? username.trim() : undefined;
       password = typeof password == 'string' ? password.trim() : undefined;
       if (!username || !password) {
@@ -154,7 +153,6 @@ module.exports = (issuer) => {
       );
       setTokensAndRedirect(req, res, access_token, id_token);
     } catch (err) {
-      console.log('err:', err);
       switch (err.reason) {
         case 'Bad Request':
           err.help = 'Ensure your login redirect urls are configured properly';
@@ -167,7 +165,7 @@ module.exports = (issuer) => {
         default:
           err.help = 'Unknown error occurred, please try again';
       }
-      // res.render('custom-login/signin/index', { err: err, username, password });
+      res.render('custom-login/signin/index', { err: err });
     }
   }
 

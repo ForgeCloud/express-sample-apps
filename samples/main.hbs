@@ -33,7 +33,17 @@
           {{{body}}}
         </div>
         <div class="col-lg-3 col-md-2 col-sm-1"></div>
-        {{#if err}} {{json err}} {{/if}}
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
+        <div class="col-lg-6 col-md-8 col-sm-10">
+          {{#if err}}
+          <div class="alert alert-danger" role="alert">
+            <pre class="mb-0">{{json err}}</pre>
+          </div>
+          {{/if}}
+        </div>
+        <div class="col-lg-3 col-md-2 col-sm-1"></div>
       </div>
     </div>
   </body>
