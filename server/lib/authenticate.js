@@ -8,7 +8,7 @@ const { OPEN_AM, CLIENT_ID, CLIENT_SECRET } = require('../config');
 module.exports = { authenticate, getAppAccessToken };
 
 function authenticate(username, password) {
-  return fetch(`${OPEN_AM}/json/realms/root/authenticate`, {
+  return fetch(`${OPEN_AM}/am/json/realms/root/authenticate`, {
     method: 'POST',
     credentials: 'same-origin',
     headers: {
@@ -21,7 +21,6 @@ function authenticate(username, password) {
     .then(parseResponse)
     .then(({ payload }) => payload)
     .catch((err) => {
-      // console.log('authenticate err:', err);
       throw err;
     });
 }
@@ -33,7 +32,7 @@ function getAppAccessToken(scope) {
   params.append('grant_type', 'client_credentials');
   params.append('scope', scope);
 
-  return fetch(`${OPEN_AM}/oauth2/access_token`, {
+  return fetch(`${OPEN_AM}/am/oauth2/access_token`, {
     body: params,
     headers: {
       'Accept-Api-Version': 'resource=2.0, protocol=1.0',

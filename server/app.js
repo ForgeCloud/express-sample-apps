@@ -46,23 +46,17 @@ module.exports = (issuer) => {
   app.get('/', indexPage);
 
   app.get('/custom/signin', customSigninPage);
-  app.post('/custom/signin', customSigninHandler);
-  app.get('/custom/callback', nonHostedCallbackHandler);
-  app.get('/custom/signin/forgot-password', forgotPasswordPage);
-
-  app.get('/hosted/callback', hostedCallbackHandler);
   app.get('/hosted/signin', hostedSigninHandler);
-
+  app.get('/custom/callback', nonHostedCallbackHandler);
+  app.get('/hosted/callback', hostedCallbackHandler);
+  app.get('/custom/recover-username', forgotUsernamePage);
+  app.get('/custom/recover-password', forgotPasswordPage);
+  app.get('/reset-password', resetPasswordPage);
   app.get('/logout', logoutHandler);
-  app.get('/custom/forgot-password', forgotPasswordPage);
-  // app.get('/reset-password', resetPasswordPage);
-  app.get('/custom/forgot-username', forgotUsernamePage);
-  // app.get('/callback', hostedCallbackHandler);
-  // app.post('/signin-hosted', hostedSigninHandler);
-  // app.post('/signin-non-hosted', nonHostedSigningHandler);
-  // app.post('/forgot-password', forgotPasswordHandler);
-  // app.post('/reset-password', resetPasswordHandler);
-  // app.post('/recover-username', recoverUsernameHandler);
+  app.post('/custom/recover-username', recoverUsernameHandler);
+  app.post('/custom/signin', customSigninHandler);
+  app.post('/custom/recover-password', forgotPasswordHandler);
+  app.post('/reset-password', resetPasswordHandler);
 
   async function indexPage(req, res) {
     if (!req.session.accessToken) {
@@ -89,7 +83,7 @@ module.exports = (issuer) => {
   }
 
   function forgotPasswordPage(req, res) {
-    res.render('custom-login/forgot-password', {});
+    res.render('custom-login/recover-password', {});
   }
 
   function resetPasswordPage(req, res) {
@@ -98,11 +92,11 @@ module.exports = (issuer) => {
     if (!token) {
       data.failure = 'Token required';
     }
-    res.render('signin/reset-password', data);
+    res.render('custom-login/reset-password', data);
   }
 
   function forgotUsernamePage(req, res) {
-    res.render('custom-login/forgot-username', {});
+    res.render('custom-login/recover-username', {});
   }
 
   async function hostedCallbackHandler(req, res) {
@@ -196,10 +190,10 @@ module.exports = (issuer) => {
       if (!(resp.success = req.ok)) {
         throw new Error(`${req.status}: ${req.statusText}`);
       }
-      res.render('signin/forgot-password', { resp });
+      res.render('custom-login/recover-password', { resp });
     } catch (err) {
       console.log(err);
-      res.render('signin/forgot-password', {
+      res.render('custom-login/recover-password', {
         resp: { problem: true },
         err,
         userName: username,
@@ -237,9 +231,9 @@ module.exports = (issuer) => {
         throw new Error(`${response.status}: ${response.statusText}`);
       }
 
-      res.render('signin/reset-password', { success: true });
+      res.render('custom-login/reset-password', { success: true });
     } catch (err) {
-      res.render('signin/reset-password', { failure: err.message });
+      res.render('custom-login/reset-password', { failure: err.message });
     }
   }
 
@@ -248,7 +242,7 @@ module.exports = (issuer) => {
     try {
       email = typeof email == 'string' ? email.trim() : undefined;
       if (!email) {
-        return res.render('signin/recover-username', {
+        return res.render('custom-login/recover-username', {
           err: {
             status: 400,
             reason: 'Bad Request',
@@ -274,10 +268,10 @@ module.exports = (issuer) => {
       if (!(resp.success = req.ok)) {
         throw `${req.status}: ${req.statusText}`;
       }
-      res.render('signin/recover-username', { resp });
+      res.render('custom-login/recover-username', { resp });
     } catch (err) {
       const resp = { problem: true };
-      res.render('signin/recover-username', { resp, err, email });
+      res.render('custom-login/recover-username', { resp, err, email });
     }
   }
 
