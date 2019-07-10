@@ -1,0 +1,42 @@
+{{> logo}}
+<h2 class="text-center">Custom Sign In</h2>
+
+<form method="post" action="">
+  <div class="form-group">
+    <label for="form-username">Username</label>
+    <input
+      class="form-control"
+      id="form-username"
+      name="username"
+      pattern=".{1,}"
+      placeholder=""
+      required
+      type="text"
+      value="{{username}}"
+    />
+  </div>
+  <div class="form-group">
+    <label for="form-password">Password</label>
+    <input
+      class="form-control"
+      id="form-password"
+      name="password"
+      pattern=".{1,}"
+      placeholder=""
+      required
+      type="password"
+      value="{{password}}"
+    />
+  </div>
+  <button class="btn btn-primary w-100 my-2" type="submit">Sign In</button>
+  <footer class="mt-2">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/recover-username">Forgot Username</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/recover-password">Forgot Password</a>
+      </li>
+    </ul>
+  </footer>
+</form>

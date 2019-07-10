@@ -1,0 +1,19 @@
+{
+  "name": "express-sample-apps",
+  "version": "1.0.0",
+  "description": "ForgeRock Express SDK Sample Apps",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "ForgeRock",
+  "license": "Apache",
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.1",
+    "node-fetch": "^2.6.0",
+    "openid-client": "^2.5.0"
+  }
+}

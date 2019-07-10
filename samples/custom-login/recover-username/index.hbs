@@ -1,0 +1,38 @@
+{{> logo}}
+<h2 class="text-center">Recover Username</h2>
+
+<form method="post" action="/custom/recover-username">
+  <div class="form-group">
+    <label for="form-email">Email Address</label>
+    <input
+      class="form-control"
+      id="form-email"
+      name="email"
+      pattern=".{1,}"
+      placeholder=""
+      required
+      type="text"
+      value="{{email}}"
+    />
+  </div>
+  {{#if resp.success}}
+  <div class="alert alert-success" role="alert">
+    Recover username email sent!
+  </div>
+  {{/if}}
+  <button class="btn btn-primary w-100 my-2" type="submit">
+    Recover Username
+  </button>
+  <footer class="mt-2">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/signin"
+          >Already have an account? Sign in</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/recover-password">Forgot Password</a>
+      </li>
+    </ul>
+  </footer>
+</form>

@@ -1,0 +1,41 @@
+{{> logo}}
+<h2 class="text-center">Reset Password</h2>
+
+<form method="post" action="">
+  <div class="form-group">
+    <label for="form-email">New Password</label>
+    <input
+      class="form-control"
+      id="form-password"
+      name="password"
+      pattern=".{6,}"
+      placeholder=""
+      required
+      type="password"
+    />
+  </div>
+  {{#if failure}}
+  <div class="alert alert-danger">
+    {{failure}}
+  </div>
+  {{else if success}}
+  <div class="alert alert-success">
+    Your password was reset successfully.
+  </div>
+  {{/if}}
+  <button class="btn btn-primary w-100 my-2" type="submit">
+    Reset Password
+  </button>
+  <footer class="mt-2">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/signin"
+          >Already have an account? Sign in</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/custom/recover-username">Forgot Username</a>
+      </li>
+    </ul>
+  </footer>
+</form>

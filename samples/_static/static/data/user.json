@@ -1,0 +1,182 @@
+[
+  {
+    "id": "2819c223-7f76-453a-919d-413861904646",
+    "externalId": "701984",
+    "userName": "bjensen@example.com",
+    "name": {
+      "formatted": "Ms. Barbara J Jensen, III",
+      "familyName": "Jensen",
+      "givenName": "Barbara",
+      "middleName": "Jane",
+      "honorificPrefix": "Ms.",
+      "honorificSuffix": "III"
+    },
+    "displayName": "Babs Jensen",
+    "nickName": "Babs",
+    "profileUrl": "https://login.example.com/bjensen",
+    "identities": [
+      {
+        "connection": "forgerock-local",
+        "userId": "5457edea1b8f22891a000004",
+        "provider": "forgerock",
+        "isSocial": false
+      },
+      {
+        "connection": "google-oauth2",
+        "userId": "99457edea1b8f22891a000004",
+        "provider": "google",
+        "isSocial": true
+      }
+    ],
+    "emails": [
+      {
+        "value": "bjensen@example.com",
+        "type": "work",
+        "primary": true,
+        "verified": true
+      },
+      {
+        "value": "babs@jensen.org",
+        "type": "home",
+        "verified": false
+      }
+    ],
+    "addresses": [
+      {
+        "type": "work",
+        "streetAddress": "100 Universal City Plaza",
+        "locality": "Hollywood",
+        "region": "CA",
+        "postalCode": "91608",
+        "country": "USA",
+        "formatted": "100 Universal City Plaza\nHollywood, CA 91608 USA",
+        "primary": true
+      },
+      {
+        "type": "home",
+        "streetAddress": "456 Hollywood Blvd",
+        "locality": "Hollywood",
+        "region": "CA",
+        "postalCode": "91608",
+        "country": "USA",
+        "formatted": "456 Hollywood Blvd\nHollywood, CA 91608 USA"
+      }
+    ],
+    "phoneNumbers": [
+      {
+        "value": "555-555-5555",
+        "type": "work"
+      },
+      {
+        "value": "555-555-4444",
+        "type": "mobile"
+      }
+    ],
+    "userType": "_teamMember",
+    "title": "Tour Guide",
+    "preferredLanguage": "en-US",
+    "locale": "en-US",
+    "timezone": "America/Los_Angeles",
+    "active": true,
+    "dateOfBirth": "1967-12-12",
+    "groups": [
+      {
+        "value": "e9e30dba-f08f-4109-8486-d5c6a331660a",
+        "display": "Customers who buy stuff"
+      },
+      {
+        "value": "fc348aa8-3835-40eb-a20b-c726e15c55b5",
+        "display": "Cool Customers"
+      },
+      {
+        "value": "71ddacd2-a8e7-49b8-a5db-ae50d0a5bfd7",
+        "display": "Really Annoying Customers"
+      }
+    ],
+    "preferences": {
+      "offers": {
+        "description": "Offers",
+        "notify": true,
+        "frequency": "monthly",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": []
+      },
+      "news": {
+        "description": "News",
+        "notify": true,
+        "frequency": "daily",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": []
+      },
+      "releaseInformation": {
+        "description": "Release Information",
+        "notify": true,
+        "frequency": "always",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": []
+      },
+      "systemOutages": {
+        "description": "System Outages",
+        "notify": true,
+        "frequency": "always",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": []
+      },
+      "doNotCall": {
+        "description": "Do not call",
+        "notify": false,
+        "frequency": "never",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": []
+      },
+      "interests": {
+        "description": "Do not call",
+        "notify": false,
+        "frequency": "never",
+        "appId": "8q76e7w7wggdttrPPhst74s",
+        "values": ["running", "skiiing", "wine"]
+      }
+    },
+    "consent": [
+      {
+        "type": "cookies",
+        "accepted": true,
+        "acceptedTimestamp": "2014-09-10T19:15:00.756Z",
+        "revoked": false,
+        "revokedTimestamp": "2017-09-10T19:15:00.756Z",
+        "appId": "8q76e7w7wggdttrPPhst74s"
+      },
+      {
+        "type": "termsAndConditions",
+        "version": "2014-1.0.2",
+        "externalVersion": "1.2.2",
+        "accepted": true,
+        "acceptedTimestamp": "2014-09-10T19:15:00.756Z",
+        "revoked": false,
+        "revokedTimestamp": "2017-09-10T19:15:00.756Z",
+        "appId": "8q76e7w7wggdttrPPhst74s"
+      },
+      {
+        "type": "privacyPolicy",
+        "version": "2014-1.0.3",
+        "externalVersion": "1.2.3",
+        "accepted": true,
+        "acceptedTimestamp": "2014-09-10T19:15:00.756Z",
+        "revoked": false,
+        "revokedTimestamp": "2017-09-10T19:15:00.756Z",
+        "appId": "8q76e7w7wggdttrPPhst74s"
+      }
+    ],
+    "userMetaData": [],
+    "devices": [
+      {
+        "id": "2819c223-7f76-453a-919d-413861904646"
+      }
+    ],
+    "meta": {
+      "resourceType": "User",
+      "created": "2010-01-23T04:56:22Z",
+      "lastModified": "2011-05-13T04:42:34Z"
+    }
+  }
+]
