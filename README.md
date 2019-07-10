@@ -6,10 +6,10 @@ This is a sample Node.js application that authenticates with an OAuth provider u
 
 ## Setup
 
-First, create a web app in your ForgeRock SaaS adminstration UI (or via the API). Set the following [configuration](#redirect_uris):
+First, create a web app in your ForgeRock Express adminstration UI (or via the API). Set the following [configuration](#redirect_uris):
 
-- Login Redirect URL Whitelist: `http://localhost:9080/callback http://localhost:9080/callback/non-hosted`
-- Logout Redirect URL Whitelist: `http://localhost:9080`
+- Login Redirect URL Whitelist: `http://localhost:9080/custom/callback http://localhost:9080/custom/callback/non-hosted`
+- Logout Redirect URL Whitelist: `http://localhost:9080/custom/logout`
 
 Click the **Create Application** button. **Be sure to capture the generated secret,** since it is unrecoverable and will not be shown again.
 
@@ -36,8 +36,6 @@ docker-compose up
 ```
 
 - Access the app at: http://localhost:9080
-
-![Screenshot Example](https://raw.githubusercontent.com/ForgeCloud/app-sdk/810-authcode/example.png)
 
 ## Hosted vs Non-Hosted Sign In
 
